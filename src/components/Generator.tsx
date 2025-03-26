@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Image from "next/image";
 
 const characters = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -47,11 +48,18 @@ export default function Generator() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-2xl font-bold mb-4">Random Password Generator</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-12">
+      {/* Hero Section */}
+      <section className="w-full text-center bg-blue-600 text-white py-10 px-6 flex flex-col md:flex-row items-center justify-center gap-6">
+        <div>
+          <h1 className="text-4xl font-bold mb-4">Secure & Random Password Generator</h1>
+          <p className="text-lg mb-4">Create strong and unique passwords to enhance your online security.</p>
+        </div>
+        <Image src="/images/password-generator-3.webp" alt="Password Security" width={300} height={200} className="rounded-lg shadow-lg" />
+      </section>
       
       {/* Password Display */}
-      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md">
+      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 ">
         <input
           type="text"
           value={password}
@@ -67,7 +75,7 @@ export default function Generator() {
       </div>
 
       {/* Strength Indicator */}
-      <div className="mt-2 text-sm">
+      <div className="mt-8 text-sm">
         <span className={`px-2 py-1 rounded-md ${
           strength === "Strong" ? "bg-green-500 text-white" :
           strength === "Medium" ? "bg-yellow-500 text-white" :
@@ -78,7 +86,7 @@ export default function Generator() {
       </div>
 
       {/* Length Slider */}
-      <div className="mt-4">
+      <div className="my-6">
         <label className="font-semibold">Password Length: {length}</label>
         <input
           type="range"
@@ -91,7 +99,7 @@ export default function Generator() {
       </div>
 
       {/* Character Options */}
-      <div className="mt-4 flex flex-wrap gap-4">
+      <div className="my-6 flex flex-wrap gap-6 m-4">
         <label className="flex items-center space-x-2">
           <input
             type="checkbox"

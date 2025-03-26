@@ -1,55 +1,68 @@
-import React from "react";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import Link from "next/link";
+'use client'
+import React, { useState } from "react";
+import { Menu, X, RefreshCcw } from "lucide-react";
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [password, setPassword] = useState("");
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  const generatePassword = () => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    let newPassword = "";
+    for (let i = 0; i < 12; i++) {
+      newPassword += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setPassword(newPassword);
+  };
 
   return (
-    <nav className="bg-gray-900 text-white shadow-md">
-      <div className="container mx-auto flex items-center justify-between p-4">
-        <Link href="/" className="text-2xl font-bold text-blue-400">
-          PasswordGen
-        </Link>
-        
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+    <header className="bg-gradient-to-r from-blue-500 to-indigo-600 p-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <div className="flex items-center text-white text-2xl font-bold">
+          <span className="bg-white text-blue-500 p-2 rounded-full">🔑</span>
+          <span className="ml-2">PassGen</span>
+        </div>
+
+        {/* Menu Button for Mobile */}
+        <button className="md:hidden text-white" onClick={toggleMenu}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Navigation Links */}
+        <nav
+          className={`${
+            isOpen ? "block" : "hidden"
+          } md:flex space-x-6 md:space-x-8 items-center text-white text-lg`}
+        >
+          <a href="#" className="hover:text-gray-200">Home</a>
+          <a href="#" className="hover:text-gray-200">Features</a>
+          <a href="#" className="hover:text-gray-200">Pricing</a>
+          <a href="#" className="hover:text-gray-200">Contact</a>
+        </nav>
+      </div>
+
+      {/* Password Generator Section */}
+      {/* <div className="text-center mt-4 md:mt-6">
+        <p className="text-white text-lg">Generated Password:</p>
+        <div className="flex items-center justify-center space-x-2 mt-2">
+          <input
+            type="text"
+            value={password}
+            readOnly
+            className="px-4 py-2 rounded-lg text-center font-mono text-lg border focus:outline-none"
+          />
+          <button
+            onClick={generatePassword}
+            className="bg-white text-blue-500 px-3 py-2 rounded-lg shadow hover:bg-gray-200 flex items-center"
+          >
+            <RefreshCcw size={20} className="mr-1" /> Generate
           </button>
         </div>
-
-        <ul className="hidden md:flex space-x-6 text-lg">
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/generate">Generate</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-      </div>
-      
-      {isOpen && (
-        <div className="md:hidden bg-gray-800 p-4">
-          <ul className="flex flex-col space-y-4 text-center">
-            <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-            <li><Link href="/generate" onClick={() => setIsOpen(false)}>Generate</Link></li>
-            <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-            <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
-          </ul>
-        </div>
-      )}
-    </nav>
-  );
-};
-
-const Footer: React.FC = () => {
-  return (
-    <footer className="bg-gray-900 text-white text-center p-4 mt-8">
-      <p>&copy; {new Date().getFullYear()} PasswordGen. All Rights Reserved.</p>
-      <div className="flex justify-center space-x-4 mt-2">
-        <Link href="/privacy" className="hover:text-blue-400">Privacy Policy</Link>
-        <Link href="/terms" className="hover:text-blue-400">Terms of Service</Link>
-      </div>
-    </footer>
+      </div> */}
+    </header>
   );
 };
 
