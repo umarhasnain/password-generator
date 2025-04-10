@@ -1,3 +1,4 @@
+'use client'
 import PasswordStrength from '@/components/CardSection'
 import FAQSection from '@/components/Faqs'
 import Footer from '@/components/Footer'
@@ -19,3 +20,4 @@ const page = () => {
 }
 
 export default page
+

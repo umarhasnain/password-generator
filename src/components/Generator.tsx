@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const characters = {
@@ -17,6 +17,11 @@ export default function Generator() {
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [strength, setStrength] = useState<string>("");
+
+  // Auto generate on load and whenever options change
+  useEffect(() => {
+    generatePassword();
+  }, [length, includeUppercase, includeLowercase, includeNumbers, includeSymbols]);
 
   const generatePassword = (): void => {
     let charSet = "";
@@ -57,9 +62,9 @@ export default function Generator() {
         </div>
         <Image src="/images/password-generator-3.webp" alt="Password Security" width={300} height={200} className="rounded-lg shadow-lg" />
       </section>
-      
+
       {/* Password Display */}
-      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 ">
+      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 w-full max-w-xl">
         <input
           type="text"
           value={password}
@@ -86,7 +91,7 @@ export default function Generator() {
       </div>
 
       {/* Length Slider */}
-      <div className="my-6">
+      <div className="my-6 w-full max-w-xl">
         <label className="font-semibold">Password Length: {length}</label>
         <input
           type="range"
@@ -99,12 +104,12 @@ export default function Generator() {
       </div>
 
       {/* Character Options */}
-      <div className="my-6 flex flex-wrap gap-6 m-4">
+      <div className="my-6 flex flex-wrap gap-6 m-4 w-full max-w-xl">
         <label className="flex items-center space-x-2">
           <input
             type="checkbox"
             checked={includeUppercase}
-            onChange={() => setIncludeUppercase(!includeUppercase)}
+            onChange={() => setIncludeUppercase(prev => !prev)}
           />
           <span>Uppercase (ABC)</span>
         </label>
@@ -112,7 +117,7 @@ export default function Generator() {
           <input
             type="checkbox"
             checked={includeLowercase}
-            onChange={() => setIncludeLowercase(!includeLowercase)}
+            onChange={() => setIncludeLowercase(prev => !prev)}
           />
           <span>Lowercase (abc)</span>
         </label>
@@ -120,7 +125,7 @@ export default function Generator() {
           <input
             type="checkbox"
             checked={includeNumbers}
-            onChange={() => setIncludeNumbers(!includeNumbers)}
+            onChange={() => setIncludeNumbers(prev => !prev)}
           />
           <span>Numbers (123)</span>
         </label>
@@ -128,19 +133,19 @@ export default function Generator() {
           <input
             type="checkbox"
             checked={includeSymbols}
-            onChange={() => setIncludeSymbols(!includeSymbols)}
+            onChange={() => setIncludeSymbols(prev => !prev)}
           />
           <span>Symbols (#$&)</span>
         </label>
       </div>
 
-      {/* Generate Password Button */}
-      <button
+      {/* Manual Generate Button */}
+      {/* <button
         onClick={generatePassword}
         className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-md"
       >
         Generate Password
-      </button>
+      </button> */}
     </div>
   );
 }
