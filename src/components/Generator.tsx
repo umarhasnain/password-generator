@@ -1,5 +1,5 @@
-'use client'
-import { useState, useEffect } from "react";
+'use client';
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const characters = {
@@ -18,12 +18,13 @@ export default function Generator() {
   const [password, setPassword] = useState<string>("");
   const [strength, setStrength] = useState<string>("");
 
-  // Auto generate on load and whenever options change
-  useEffect(() => {
-    generatePassword();
-  }, [length, includeUppercase, includeLowercase, includeNumbers, includeSymbols]);
+  const evaluateStrength = useCallback((password: string): void => {
+    if (password.length < 8) setStrength("Weak");
+    else if (password.length >= 8 && password.length < 12) setStrength("Medium");
+    else setStrength("Strong");
+  }, []);
 
-  const generatePassword = (): void => {
+  const generatePassword = useCallback((): void => {
     let charSet = "";
     if (includeUppercase) charSet += characters.uppercase;
     if (includeLowercase) charSet += characters.lowercase;
@@ -39,13 +40,11 @@ export default function Generator() {
 
     setPassword(newPassword);
     evaluateStrength(newPassword);
-  };
+  }, [length, includeUppercase, includeLowercase, includeNumbers, includeSymbols, evaluateStrength]);
 
-  const evaluateStrength = (password: string): void => {
-    if (password.length < 8) setStrength("Weak");
-    else if (password.length >= 8 && password.length < 12) setStrength("Medium");
-    else setStrength("Strong");
-  };
+  useEffect(() => {
+    generatePassword();
+  }, [generatePassword]);
 
   const copyToClipboard = (): void => {
     navigator.clipboard.writeText(password);
@@ -60,7 +59,13 @@ export default function Generator() {
           <h1 className="text-4xl font-bold mb-4">Secure & Random Password Generator</h1>
           <p className="text-lg mb-4">Create strong and unique passwords to enhance your online security.</p>
         </div>
-        <Image src="/images/password-generator-3.webp" alt="Password Security" width={300} height={200} className="rounded-lg shadow-lg" />
+        <Image
+          src="/images/password-generator-3.webp"
+          alt="Password Security"
+          width={300}
+          height={200}
+          className="rounded-lg shadow-lg"
+        />
       </section>
 
       {/* Password Display */}
@@ -82,9 +87,11 @@ export default function Generator() {
       {/* Strength Indicator */}
       <div className="mt-8 text-sm">
         <span className={`px-2 py-1 rounded-md ${
-          strength === "Strong" ? "bg-green-500 text-white" :
-          strength === "Medium" ? "bg-yellow-500 text-white" :
-          "bg-red-500 text-white"
+          strength === "Strong"
+            ? "bg-green-500 text-white"
+            : strength === "Medium"
+            ? "bg-yellow-500 text-white"
+            : "bg-red-500 text-white"
         }`}>
           {strength ? `Strength: ${strength}` : "Select Options & Generate"}
         </span>
@@ -138,14 +145,6 @@ export default function Generator() {
           <span>Symbols (#$&)</span>
         </label>
       </div>
-
-      {/* Manual Generate Button */}
-      {/* <button
-        onClick={generatePassword}
-        className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-md"
-      >
-        Generate Password
-      </button> */}
     </div>
   );
 }
