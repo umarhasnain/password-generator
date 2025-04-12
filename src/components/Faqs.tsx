@@ -53,19 +53,19 @@ const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-navy-900 text-black py-16 px-6">
+    <section className="bg-navy-900 text-black py-16 px-6 ">
       <h2 className="text-4xl text-blue-500 font-extrabold text-center mb-10">Password Generator FAQs</h2>
       <div className="max-w-2xl mx-auto bg-white text-navy-900 rounded-2xl shadow-lg p-6">
         {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-gray-300 py-4">
+          <div key={index} className="border-b border-gray-300 py-4 cursor-pointer">
             <button
-              className="w-full text-black text-left flex justify-between items-center text-lg font-semibold focus:outline-none"
+              className="w-full text-black text-left flex justify-between items-center text-lg font-semibold focus:outline-none cursor-pointer"
               onClick={() => toggleFAQ(index)}
             >
               {faq.question}
-              <span className="text-xl">{openIndex === index ? <Image src="/images/2.png" height={30} width={30} alt="img"/> : <Image src="/images/1.png" height={30} width={30} alt="img"></Image>}</span>
+              <span className="text-xl cursor-pointer">{openIndex === index ? <Image src="/images/2.png" height={30} width={30} alt="img"/> : <Image src="/images/1.png" height={30} width={30} alt="img"></Image>}</span>
             </button>
-            {openIndex === index && <p className="mt-3 text-gray-700">{faq.answer}</p>}
+            {openIndex === index && <p className="mt-3 text-gray-700 ">{faq.answer}</p>}
           </div>
         ))}
       </div>

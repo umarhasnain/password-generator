@@ -52,9 +52,9 @@ export default function Generator() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-12">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-12 cursor-pointer">
       {/* Hero Section */}
-      <section className="w-full text-center bg-blue-500 text-white py-10 px-6 flex flex-col md:flex-row items-center justify-center gap-6">
+      <section className="w-full text-center bg-blue-500 text-white py-10 px-6 flex flex-col md:flex-row items-center justify-center gap-6 cursor-pointer">
       <div className="transition-all duration-500 ease-in-out transform hover:scale-105 animate__animated animate__fadeIn">
         <h1 className=" font-bold mb-4 text-lg md:text-4xl lg:text-5xl xl:text-4xl transition-all duration-500 ease-in-out hover:text-yellow-400">
           RandomPasswordGeneratorFree.com – Secure Passwords Made Simple
@@ -77,23 +77,23 @@ export default function Generator() {
       </div>
     </section>
       {/* Password Display */}
-      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 w-full max-w-xl">
+      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 w-full max-w-xl ">
         <input
           type="text"
           value={password}
           readOnly
-          className="w-full border-none outline-none text-lg"
+          className="w-full border-none outline-none text-lg cursor-pointer"
         />
-        <button onClick={generatePassword} className="bg-blue-500 text-white px-3 py-1 rounded-md">
+        <button onClick={generatePassword} className="bg-blue-500 text-white px-3 py-1 rounded-md cursor-pointer">
           🔄
         </button>
-        <button onClick={copyToClipboard} className="bg-green-500 text-white px-3 py-1 rounded-md">
+        <button onClick={copyToClipboard} className="bg-green-500 text-white px-3 py-1 rounded-md cursor-pointer">
           📋
         </button>
       </div>
 
       {/* Strength Indicator */}
-      <div className="mt-8 text-sm">
+      <div className="mt-8 text-sm cursor-pointer">
         <span className={`px-2 py-1 rounded-md ${
           strength === "Strong"
             ? "bg-green-500 text-white"
@@ -106,7 +106,7 @@ export default function Generator() {
       </div>
 
       {/* Length Slider */}
-      <div className="my-6 w-full max-w-xl">
+      <div className="my-6 w-full max-w-xl cursor-pointer">
         <label className="font-semibold">Password Length: {length}</label>
         <input
           type="range"
@@ -114,39 +114,43 @@ export default function Generator() {
           max="30"
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}
-          className="w-full mt-2"
+          className="w-full mt-2 cursor-pointer"
         />
       </div>
 
       {/* Character Options */}
-      <div className="my-6 flex flex-wrap gap-6 m-4 w-full max-w-xl">
-        <label className="flex items-center space-x-2">
+      <div className="my-6 flex flex-wrap gap-6 m-4 w-full max-w-xl cursor-pointer">
+        <label className="flex items-center space-x-2 cursor-pointer">
           <input
             type="checkbox"
+            className="cursor-pointer"
             checked={includeUppercase}
             onChange={() => setIncludeUppercase(prev => !prev)}
           />
           <span>Uppercase (ABC)</span>
         </label>
-        <label className="flex items-center space-x-2">
+        <label className="flex items-center space-x-2 cursor-pointer">
           <input
             type="checkbox"
+            className="cursor-pointer"
             checked={includeLowercase}
             onChange={() => setIncludeLowercase(prev => !prev)}
           />
           <span>Lowercase (abc)</span>
         </label>
-        <label className="flex items-center space-x-2">
+        <label className="flex items-center space-x-2 cursor-pointer">
           <input
             type="checkbox"
+            className="cursor-pointer"
             checked={includeNumbers}
             onChange={() => setIncludeNumbers(prev => !prev)}
           />
           <span>Numbers (123)</span>
         </label>
-        <label className="flex items-center space-x-2">
+        <label className="flex items-center space-x-2 cursor-pointer">
           <input
             type="checkbox"
+            className="cursor-pointer"
             checked={includeSymbols}
             onChange={() => setIncludeSymbols(prev => !prev)}
           />

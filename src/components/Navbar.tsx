@@ -8,10 +8,10 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="sm:flex md:flex lg:flex items-center bg-gradient-to-r from-blue-500 to-indigo-600 p-4 shadow-md">
+    <header className="sm:flex md:flex lg:flex items-center bg-gradient-to-r from-blue-500 to-blue-500 p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center text-white text-2xl font-bold">
+        <div className="flex items-center text-white text-2xl font-bold cursor-pointer">
           {/* <span className="bg-white text-blue-500 p-2 rounded-full">🔑</span> */}
           <span className="ml-2">RandomPasswordGeneratorFree</span>
         </div>
