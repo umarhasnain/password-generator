@@ -36,7 +36,7 @@ const PasswordStrength: React.FC = () => {
         {strengthItems.map((item, index) => (
           <div
             key={index}
-            className="bg-white text-navy-900 p-8 rounded-2xl shadow-lg max-w-sm flex flex-col items-center border border-navy-700 hover:shadow-2xl transition duration-300"
+            className="bg-white text-navy-900 p-8 rounded-2xl shadow-lg max-w-sm flex flex-col items-center border border-navy-700 hover:shadow-2xl transition duration-300 cursor-pointer"
           >
             <div className="mb-4 text-navy-700">{item.icon}</div>
             <h3 className="font-semibold text-xl mb-3">{item.title}</h3>

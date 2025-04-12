@@ -54,20 +54,28 @@ export default function Generator() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-12">
       {/* Hero Section */}
-      <section className="w-full text-center bg-blue-600 text-white py-10 px-6 flex flex-col md:flex-row items-center justify-center gap-6">
-        <div>
-          <h1 className="text-4xl font-bold mb-4">Secure & Random Password Generator</h1>
-          <p className="text-lg mb-4">Create strong and unique passwords to enhance your online security.</p>
-        </div>
+      <section className="w-full text-center bg-blue-500 text-white py-10 px-6 flex flex-col md:flex-row items-center justify-center gap-6">
+      <div className="transition-all duration-500 ease-in-out transform hover:scale-105 animate__animated animate__fadeIn">
+        <h1 className=" font-bold mb-4 text-lg md:text-4xl lg:text-5xl xl:text-4xl transition-all duration-500 ease-in-out hover:text-yellow-400">
+          RandomPasswordGeneratorFree.com – Secure Passwords Made Simple
+        </h1>
+        <p className="text-lg mb-4 md:text-sm transition-all duration-500 ease-in-out hover:text-yellow-300">
+          RandomPasswordGeneratorFree provides a free and secure solution to generate passwords to keep your data safe.
+          Whether protecting a personal email, some financial accounts, or work logins, this tool can help you through. It
+          helps you to secure accounts at no cost.
+        </p>
+      </div>
+
+      <div className="transition-transform duration-500 ease-in-out transform hover:scale-110 animate__animated animate__fadeIn animate__delay-1s">
         <Image
           src="/images/password-generator-3.webp"
           alt="Password Security"
           width={300}
           height={200}
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg object-contain transition-transform duration-500 ease-in-out transform hover:scale-110"
         />
-      </section>
-
+      </div>
+    </section>
       {/* Password Display */}
       <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 w-full max-w-xl">
         <input
