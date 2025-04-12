@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 
 const characters = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -17,6 +16,7 @@ export default function Generator() {
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
   const [strength, setStrength] = useState<string>("");
+  const [copied, setCopied] = useState<boolean>(false);
 
   const evaluateStrength = useCallback((password: string): void => {
     if (password.length < 8) setStrength("Weak");
@@ -40,6 +40,7 @@ export default function Generator() {
 
     setPassword(newPassword);
     evaluateStrength(newPassword);
+    setCopied(false);
   }, [length, includeUppercase, includeLowercase, includeNumbers, includeSymbols, evaluateStrength]);
 
   useEffect(() => {
@@ -48,65 +49,61 @@ export default function Generator() {
 
   const copyToClipboard = (): void => {
     navigator.clipboard.writeText(password);
-    alert("Password copied!");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000); // auto hide after 2s
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-12 cursor-pointer">
-      {/* Hero Section */}
-      <section className="w-full text-center bg-blue-500 text-white py-10 px-6 flex flex-col md:flex-row items-center justify-center gap-6 cursor-pointer">
-      <div className="transition-all duration-500 ease-in-out transform hover:scale-105 animate__animated animate__fadeIn">
-        <h1 className=" font-bold mb-4 text-lg md:text-4xl lg:text-5xl xl:text-4xl transition-all duration-500 ease-in-out hover:text-yellow-400">
-          RandomPasswordGeneratorFree.com – Secure Passwords Made Simple
-        </h1>
-        <p className="text-lg mb-4 md:text-sm transition-all duration-500 ease-in-out hover:text-yellow-300">
-          RandomPasswordGeneratorFree provides a free and secure solution to generate passwords to keep your data safe.
-          Whether protecting a personal email, some financial accounts, or work logins, this tool can help you through. It
-          helps you to secure accounts at no cost.
-        </p>
-      </div>
-
-      <div className="transition-transform duration-500 ease-in-out transform hover:scale-110 animate__animated animate__fadeIn animate__delay-1s">
-        <Image
-          src="/images/password-generator-3.webp"
-          alt="Password Security"
-          width={300}
-          height={200}
-          className="rounded-lg shadow-lg object-contain transition-transform duration-500 ease-in-out transform hover:scale-110"
-        />
-      </div>
-    </section>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 sm:p-10 md:p-12">
+      
       {/* Password Display */}
-      <div className="flex items-center space-x-2 bg-white p-3 rounded-md shadow-md mt-12 w-full max-w-xl ">
+      <div className="flex flex-col sm:flex-row items-center bg-white p-4 rounded-md shadow-md mt-4 w-full max-w-xl gap-3 sm:gap-2">
         <input
           type="text"
           value={password}
           readOnly
-          className="w-full border-none outline-none text-lg cursor-pointer"
+          className="w-full border border-gray-300 rounded-md px-3 py-2 outline-none text-lg"
         />
-        <button onClick={generatePassword} className="bg-blue-500 text-white px-3 py-1 rounded-md cursor-pointer">
-          🔄
-        </button>
-        <button onClick={copyToClipboard} className="bg-green-500 text-white px-3 py-1 rounded-md cursor-pointer">
-          📋
-        </button>
+        <div className="flex flex-row gap-2">
+          <button
+            onClick={generatePassword}
+            className="bg-blue-500 hover:bg-blue-600 transition text-white px-4 py-2 rounded-md"
+          >
+            🔄
+          </button>
+          <button
+            onClick={copyToClipboard}
+            className="bg-green-500 hover:bg-green-600 transition text-white px-4 py-2 rounded-md"
+          >
+            📋
+          </button>
+        </div>
       </div>
 
+      {/* Copied Message */}
+      {copied && (
+        <p className="mt-2 text-green-600 text-sm font-medium animate-pulse">
+          Password copied to clipboard!
+        </p>
+      )}
+
       {/* Strength Indicator */}
-      <div className="mt-8 text-sm cursor-pointer">
-        <span className={`px-2 py-1 rounded-md ${
-          strength === "Strong"
-            ? "bg-green-500 text-white"
-            : strength === "Medium"
-            ? "bg-yellow-500 text-white"
-            : "bg-red-500 text-white"
-        }`}>
+      <div className="mt-6 text-sm">
+        <span
+          className={`px-3 py-1 rounded-md font-medium ${
+            strength === "Strong"
+              ? "bg-green-500 text-white"
+              : strength === "Medium"
+              ? "bg-yellow-500 text-white"
+              : "bg-red-500 text-white"
+          }`}
+        >
           {strength ? `Strength: ${strength}` : "Select Options & Generate"}
         </span>
       </div>
 
       {/* Length Slider */}
-      <div className="my-6 w-full max-w-xl cursor-pointer">
+      <div className="my-6 w-full max-w-xl">
         <label className="font-semibold">Password Length: {length}</label>
         <input
           type="range"
@@ -114,48 +111,51 @@ export default function Generator() {
           max="30"
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}
-          className="w-full mt-2 cursor-pointer"
+          className="w-full mt-2"
         />
       </div>
 
       {/* Character Options */}
-      <div className="my-6 flex flex-wrap gap-6 m-4 w-full max-w-xl cursor-pointer">
-        <label className="flex items-center space-x-2 cursor-pointer">
+      <div className="my-6 flex flex-wrap gap-6 w-full max-w-xl">
+        <label className="flex items-center space-x-2">
           <input
             type="checkbox"
-            className="cursor-pointer"
             checked={includeUppercase}
-            onChange={() => setIncludeUppercase(prev => !prev)}
+            onChange={() => setIncludeUppercase((prev) => !prev)}
+            className="cursor-pointer"
           />
           <span>Uppercase (ABC)</span>
         </label>
-        <label className="flex items-center space-x-2 cursor-pointer">
+        <label className="flex items-center space-x-2">
           <input
             type="checkbox"
-            className="cursor-pointer"
             checked={includeLowercase}
-            onChange={() => setIncludeLowercase(prev => !prev)}
+            onChange={() => setIncludeLowercase((prev) => !prev)}
+            className="cursor-pointer"
           />
           <span>Lowercase (abc)</span>
         </label>
-        <label className="flex items-center space-x-2 cursor-pointer">
+        <label className="flex items-center space-x-2">
           <input
             type="checkbox"
-            className="cursor-pointer"
             checked={includeNumbers}
-            onChange={() => setIncludeNumbers(prev => !prev)}
+            onChange={() => setIncludeNumbers((prev) => !prev)}
+            className="cursor-pointer"
           />
           <span>Numbers (123)</span>
         </label>
-        <label className="flex items-center space-x-2 cursor-pointer">
+        <label className="flex items-center space-x-2">
           <input
             type="checkbox"
-            className="cursor-pointer"
             checked={includeSymbols}
-            onChange={() => setIncludeSymbols(prev => !prev)}
+            onChange={() => setIncludeSymbols((prev) => !prev)}
+            className="cursor-pointer"
           />
           <span>Symbols (#$&)</span>
         </label>
+      </div>
+      <div>
+        <button  onClick={copyToClipboard} className="border-2 p-2 border-blue-400 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer">📋 Copy Password</button>
       </div>
     </div>
   );

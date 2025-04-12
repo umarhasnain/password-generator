@@ -1,4 +1,4 @@
-// app/password-generator/page.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -89,43 +89,47 @@ const sections = [
 
 export default function PasswordGeneratorPage() {
   return (
-   <div className="overflow-x-hidden">
-     <main className="bg-gradient-to-br from-slate-50 text-white py-16 px-4 sm:px-10 max-w-7xl mx-auto space-y-16">
-      <motion.h1
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-transparent bg-clip-text"
-      >
-        Welcome to RandomPasswordGeneratorFree.com
-      </motion.h1>
-
-      {sections.map((section, index) =>{
-         const isCommonPasswords = section.title === "10 Most Common Passwords Used";
-        return  (
-          <motion.section
-            key={index}
-            className={`rounded-2xl shadow-xl p-6 sm:p-8 space-y-4 border  hover:shadow-2xl transition duration-300 cursor-pointer
-              ${isCommonPasswords
-                ? "bg-blue-100 border-blue-400 ring-2 ring-blue-500"
-                : "bg-white border-blue-800"}
-            `}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.08 }}
-            viewport={{ once: true }}
+    
+      <div className="overflow-x-hidden">
+        <main className="bg-gradient-to-br from-slate-50 to-slate-100 text-white py-10 px-2 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto space-y-10">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-transparent bg-clip-text"
           >
-            <h2 className="text-2xl sm:text-3xl font-bold text-blue-500">
-              {section.title}
-            </h2>
-            <p className="whitespace-pre-line text-gray-800 leading-relaxed text-lg">
-              {section.content}
-            </p>
-          </motion.section>
-        )
-      }
-      )}
-    </main>
-   </div>
+            Welcome to RandomPasswordGeneratorFree.com
+          </motion.h1>
+  
+          <div className="grid gap-6 xs:gap-8 sm:gap-10">
+            {sections.map((section, index) => {
+              const isCommonPasswords =
+                section.title === "10 Most Common Passwords Used";
+  
+              return (
+                <motion.section
+                  key={index}
+                  className={`rounded-xl xs:rounded-2xl shadow-md xs:shadow-lg p-4 xs:p-5 sm:p-6 md:p-8 space-y-4 transition duration-300 transform hover:scale-[1.01] border ${
+                    isCommonPasswords
+                      ? "bg-blue-100 border-blue-400 ring-1 ring-blue-500"
+                      : "bg-white border-blue-800"
+                  }`}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.06 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-lg xs:text-xl sm:text-2xl font-semibold text-blue-500">
+                    {section.title}
+                  </h2>
+                  <p className="whitespace-pre-line text-gray-800 leading-relaxed text-sm xs:text-base sm:text-lg">
+                    {section.content}
+                  </p>
+                </motion.section>
+              );
+            })}
+          </div>
+        </main>
+      </div>
   );
 }
