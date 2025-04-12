@@ -6,6 +6,11 @@ import { motion } from "framer-motion";
 
 const sections = [
   {
+    title: "RandomPasswordGeneratorFree.com – Secure Passwords Made Simple",
+    content:
+      "RandomPasswordGeneratorFree provides a free and secure solution to generate passwords to keep your data safe. Whether protecting a personal email, some financial accounts, or work logins, this tool can help you through. It helps you to secure accounts at no cost. ",
+  },
+  {
     title: "Password Generator Is Your First Step Towards Stronger Security",
     content:
       "Your password is the first step in protecting your online footprint. Weak passwords, such as 123456 or password, are easily hacked. Our password generator averts those cases by creating unique combinations of letters, numbers, and symbols. You can set it to the length that you need, whether it is a password generator of 12 characters for standard accounts or 15 characters for extra protection. It even provides an option like a password generator 8 characters for simple entries, or maybe the 16-character password generator for the very high-security needs. This tool is made to suit any situation. It boosts your defenses with minimum disruption and simplicity.",
