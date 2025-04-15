@@ -17,7 +17,7 @@ const faqs: FAQItem[] = [
   {
     question: "Are there any big differences among all password generators?",
     answer:
-      "There seems to be a difference in how different generators produce passwords. Some are simplistic, spitting out basic combinations. Others are practically wizards, using sophisticated algorithms to ensure maximum strength and randomness. The secret sauce? Those that allow for adjustable length, the inclusion of special characters, and predictability avoidances are exemplary. Randompasswordgeneratorfree is an ideal tool for you to try generating strong passwords. ",
+      "There seems to be a difference in how different generators produce passwords. Some are simplistic, spitting out basic combinations. Others are practically wizard, using sophisticated algorithms to ensure maximum strength and randomness. The secret sauce? Those that allow for adjustable length, the inclusion of special characters, and predictability avoidances are exemplary. Randompasswordgeneratorfree is an ideal tool for you to try generating strong passwords. ",
   },
   {
     question: "Couldn't I come up with my passwords without using a generator?",
