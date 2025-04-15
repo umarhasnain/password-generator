@@ -111,7 +111,7 @@ export default function Generator() {
           max="30"
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}
-          className="w-full mt-2 accent-blue-500"
+          className="w-full mt-2 accent-blue-500 "
         />
       </div>
   

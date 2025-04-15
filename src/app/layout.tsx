@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Free Online Random Password Generator | Create Strong Passwords",
-  description: "Try our free online password generator. A strong password secures your online accounts from hackers and cyber attacks.",
+  title: "Free Random Password Generator | Create Strong & Secure Passwords",
+  description:
+    "Need a secure password? Use our free random password generator to create strong and unique passwords in seconds. Secure your accounts instantly!",
+    other: {
+      'google-site-verification': 'Pxi-Xb83qkGcWaAvErZAxnlKkr5RTWEzghOcwqkyq_4',
+    },
 };
 
 export default function RootLayout({
