@@ -57,7 +57,7 @@ const FAQSection: React.FC = () => {
     <section className="bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-3 xs:px-4 sm:px-6 md:px-8 lg:px-16">
       <div className="max-w-4xl mx-auto text-center mb-10">
         <h2 className="text-2xl xs:text-3xl sm:text-4xl font-extrabold text-blue-600">
-          Password Generator FAQs
+        FreeStrongPasswordGenerator FAQs
         </h2>
         <p className="mt-2 text-sm xs:text-base text-gray-600">
           Everything you need to know about using a password generator.

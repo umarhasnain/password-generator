@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 const sections = [
   {
-    title: "RandomPasswordGeneratorFree.com – Secure Passwords Made Simple",
+    title: "  FreeStrongPasswordGenerator – Secure Passwords Made Simple",
     content:
-      "RandomPasswordGeneratorFree provides a free and secure solution to generate passwords to keep your data safe. Whether protecting a personal email, some financial accounts, or work logins, this tool can help you through. It helps you to secure accounts at no cost. ",
+      "  FreeStrongPasswordGenerator provides a free and secure solution to generate passwords to keep your data safe. Whether protecting a personal email, some financial accounts, or work logins, this tool can help you through. It helps you to secure accounts at no cost. ",
   },
   {
     title: "Password Generator Is Your First Step Towards Stronger Security",
@@ -43,27 +43,27 @@ const sections = [
   {
     title: "Get Effective Security from Password Generator 8 Characters",
     content:
-      "An 8-character password is often the minimum requirement for many online platforms, but it’s also the baseline for security. RandomPasswordGeneratorFree.com creates 8-character passwords combining uppercase letters, lowercase letters, numbers, and special symbols, maximizing complexity within this length. An 8-character password using a 95-character set yields about 52.6 bits of entropy, offering decent protection for low-risk accounts. However, with modern computing power, such passwords can be vulnerable to brute-force attacks in minutes. This option is ideal for temporary or less sensitive accounts, but for stronger security, consider longer passwords available on the site.",
+      "An 8-character password is often the minimum requirement for many online platforms, but it’s also the baseline for security.   FreeStrongPasswordGenerator.com creates 8-character passwords combining uppercase letters, lowercase letters, numbers, and special symbols, maximizing complexity within this length. An 8-character password using a 95-character set yields about 52.6 bits of entropy, offering decent protection for low-risk accounts. However, with modern computing power, such passwords can be vulnerable to brute-force attacks in minutes. This option is ideal for temporary or less sensitive accounts, but for stronger security, consider longer passwords available on the site.",
   },
   {
     title: "Balanced Strength for Everyday Use from Password Generator 12 Characters",
     content:
-      "For most online accounts, a 12-character password strikes an excellent balance between usability and security. RandomPasswordGeneratorFree.com generates these passwords with high randomness, incorporating diverse character types to ensure robustness. With approximately 77.9 bits of entropy, a 12-character password is exponentially harder to crack than its 8-character counterpart, potentially taking years to break with current technology. This length is perfect for social media, email, or e-commerce accounts, providing peace of mind without being overly complex to manage. The tool’s intuitive interface lets you create these passwords instantly, tailored to your preferences.",
+      "For most online accounts, a 12-character password strikes an excellent balance between usability and security.   FreeStrongPasswordGenerator.com generates these passwords with high randomness, incorporating diverse character types to ensure robustness. With approximately 77.9 bits of entropy, a 12-character password is exponentially harder to crack than its 8-character counterpart, potentially taking years to break with current technology. This length is perfect for social media, email, or e-commerce accounts, providing peace of mind without being overly complex to manage. The tool’s intuitive interface lets you create these passwords instantly, tailored to your preferences.",
   },
   {
     title: "Protection for Sensitive Data from Password Generator 15 Characters",
     content:
-      "When it comes to sensitive accounts like banking or personal cloud storage, a 15-character password offers superior protection. RandomPasswordGeneratorFree.com creates these passwords with advanced randomization, ensuring no predictable patterns. With around 97.4 bits of entropy, a 15-character password is virtually impervious to brute-force attacks, potentially taking decades to crack. This length is recommended by cybersecurity experts for high-stakes accounts where a breach could have serious consequences. The platform allows customization, letting you include special characters or numbers, making your password both secure and compliant with stringent website requirements.",
+      "When it comes to sensitive accounts like banking or personal cloud storage, a 15-character password offers superior protection.   FreeStrongPasswordGenerator.com creates these passwords with advanced randomization, ensuring no predictable patterns. With around 97.4 bits of entropy, a 15-character password is virtually impervious to brute-force attacks, potentially taking decades to crack. This length is recommended by cybersecurity experts for high-stakes accounts where a breach could have serious consequences. The platform allows customization, letting you include special characters or numbers, making your password both secure and compliant with stringent website requirements.",
   },
   {
     title: "Use Ultimate Defense for Critical Accounts from 16 Character Password Generator",
     content:
-      "For the highest level of security, RandomPasswordGeneratorFree.com’s 16-character password generator is unmatched. These passwords are for critical applications like financial accounts or primary email addresses. The sheer number of possible combinations makes them nearly impossible to crack, with cracking times extending beyond the age of the universe using today’s technology. This tool ensures true randomness, likely using algorithms akin to industry leaders, and generates passwords on your device for maximum privacy. Choose this option for big protection against even the most determined cybercriminals.",
+      "For the highest level of security,   FreeStrongPasswordGenerator.com’s 16-character password generator is unmatched. These passwords are for critical applications like financial accounts or primary email addresses. The sheer number of possible combinations makes them nearly impossible to crack, with cracking times extending beyond the age of the universe using today’s technology. This tool ensures true randomness, likely using algorithms akin to industry leaders, and generates passwords on your device for maximum privacy. Choose this option for big protection against even the most determined cybercriminals.",
   },
   {
     title: "Online Password Generator: Anytime, Anywhere Access",
     content:
-      "Convenience matters, and our online password generator will do just that. No software to install. Just come by any device and go to RandomPasswordGeneratorFree.com and get passwords. If you want \"Cloud$Rain22\" or a completely random string from our strong random password generator, it's all at your fingertips.",
+      "Convenience matters, and our online password generator will do just that. No software to install. Just come by any device and go to   FreeStrongPasswordGenerator.com and get passwords. If you want \"Cloud$Rain22\" or a completely random string from our strong random password generator, it's all at your fingertips.",
   },
   {
     title: "Random Password Generator Free",
@@ -83,12 +83,12 @@ const sections = [
   {
     title: "Best Password Generator: Why We’re Your Top Choice",
     content:
-      "What makes RandomPasswordGeneratorFree.com truly the finest password generator out there? Well, it is our dedication towards the cause of quality and variability. We go the entire nine yards in terms of a password generator 12 characters all the way through a password generator 15 characters, ensuring that you get exactly what you're after. Our easy to remember password generator generator creates passwords such as \"Tree$Leaf88\" for a while and then hits you with a strong password generator random that truly leaves you with a string of numbers and letters that even you cannot guess. Providing a fast, secure, and free password generator online comes handy for either a beginner or an advanced computer user. With RandomPasswordGeneratorFree.com, you are truly your own master. Customize your passwords according to what you need, and rest easy knowing that your accounts are well-protected.",
+      "What makes   FreeStrongPasswordGenerator.com truly the finest password generator out there? Well, it is our dedication towards the cause of quality and variability. We go the entire nine yards in terms of a password generator 12 characters all the way through a password generator 15 characters, ensuring that you get exactly what you're after. Our easy to remember password generator generator creates passwords such as \"Tree$Leaf88\" for a while and then hits you with a strong password generator random that truly leaves you with a string of numbers and letters that even you cannot guess. Providing a fast, secure, and free password generator online comes handy for either a beginner or an advanced computer user. With   FreeStrongPasswordGenerator.com, you are truly your own master. Customize your passwords according to what you need, and rest easy knowing that your accounts are well-protected.",
   },
   {
     title: "Try Our Password Generator for Free",
     content:
-      "Passwords are your first line of defense in the digital world, and we're here to help you make them as strong as possible. RandomPasswordGeneratorFree.com provides the best password generator experience- free, fast, and reliable. So, it doesn't matter if you need a memorable password generator with 12 characters for that new account or a strong random password generator words for top security, we have you covered. Go on, give our service a try. Generate a password, secure your accounts, and experience the confidence that comes from knowing you are covered. With RandomPasswordGeneratorFree.com, better security is always just a click away.",
+      "Passwords are your first line of defense in the digital world, and we're here to help you make them as strong as possible.   FreeStrongPasswordGenerator.com provides the best password generator experience- free, fast, and reliable. So, it doesn't matter if you need a memorable password generator with 12 characters for that new account or a strong random password generator words for top security, we have you covered. Go on, give our service a try. Generate a password, secure your accounts, and experience the confidence that comes from knowing you are covered. With   FreeStrongPasswordGenerator.com, better security is always just a click away.",
   },
 ];
 
@@ -101,9 +101,9 @@ export default function PasswordGeneratorPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-transparent bg-clip-text"
+            className="pb-3 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 text-transparent bg-clip-text"
           >
-            Welcome to RandomPasswordGeneratorFree.com
+            Welcome to FreeStrongPasswordGenerator
           </motion.h1>
   
           <div className="grid gap-6 xs:gap-8 sm:gap-10">
