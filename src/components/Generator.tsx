@@ -57,40 +57,40 @@ export default function Generator() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 sm:p-10 md:p-12">
       
       {/* Password Display */}
-      <div className="flex flex-col sm:flex-row items-center bg-white p-4 rounded-md shadow-md mt-4 w-full max-w-xl gap-3 sm:gap-2">
+      <div className="flex flex-col sm:flex-row items-center bg-white p-4 sm:p-6 lg:p-8 rounded-md shadow-md mt-4 w-full max-w-xl lg:max-w-3xl gap-3 sm:gap-4">
         <input
           type="text"
           value={password}
           readOnly
-          className="w-full border border-gray-300 rounded-md px-3 py-2 outline-none text-lg"
+          className="w-full border border-gray-300 rounded-md px-3 py-3 outline-none text-lg lg:text-2xl font-medium"
         />
         <div className="flex flex-row gap-2">
           <button
             onClick={generatePassword}
-            className="bg-blue-500 hover:bg-blue-600 transition text-white px-4 py-2 rounded-md"
+            className="bg-blue-500 hover:bg-blue-600 transition text-white px-5 py-3 lg:px-6 lg:py-3 text-lg rounded-md"
           >
             🔄
           </button>
           <button
             onClick={copyToClipboard}
-            className="bg-green-500 hover:bg-green-600 transition text-white px-4 py-2 rounded-md"
+            className="bg-green-500 hover:bg-green-600 transition text-white px-5 py-3 lg:px-6 lg:py-3 text-lg rounded-md"
           >
             📋
           </button>
         </div>
       </div>
-
+  
       {/* Copied Message */}
       {copied && (
-        <p className="mt-2 text-green-600 text-sm font-medium animate-pulse">
+        <p className="mt-2 text-green-600 text-base lg:text-lg font-medium animate-pulse">
           Password copied to clipboard!
         </p>
       )}
-
+  
       {/* Strength Indicator */}
-      <div className="mt-6 text-sm">
+      <div className="mt-6 text-sm lg:text-base">
         <span
-          className={`px-3 py-1 rounded-md font-medium ${
+          className={`px-4 py-2 rounded-md font-semibold ${
             strength === "Strong"
               ? "bg-green-500 text-white"
               : strength === "Medium"
@@ -101,28 +101,28 @@ export default function Generator() {
           {strength ? `Strength: ${strength}` : "Select Options & Generate"}
         </span>
       </div>
-
+  
       {/* Length Slider */}
-      <div className="my-6 w-full max-w-xl">
-        <label className="font-semibold">Password Length: {length}</label>
+      <div className="my-6 w-full max-w-xl lg:max-w-3xl">
+        <label className="font-semibold text-lg">Password Length: {length}</label>
         <input
           type="range"
           min="6"
           max="30"
           value={length}
           onChange={(e) => setLength(Number(e.target.value))}
-          className="w-full mt-2"
+          className="w-full mt-2 accent-blue-500"
         />
       </div>
-
+  
       {/* Character Options */}
-      <div className="my-6 flex flex-wrap gap-6 w-full max-w-xl">
+      <div className="my-6 flex flex-wrap gap-6 w-full max-w-xl lg:max-w-3xl text-base lg:text-lg">
         <label className="flex items-center space-x-2">
           <input
             type="checkbox"
             checked={includeUppercase}
             onChange={() => setIncludeUppercase((prev) => !prev)}
-            className="cursor-pointer"
+            className="cursor-pointer w-5 h-5"
           />
           <span>Uppercase (ABC)</span>
         </label>
@@ -131,7 +131,7 @@ export default function Generator() {
             type="checkbox"
             checked={includeLowercase}
             onChange={() => setIncludeLowercase((prev) => !prev)}
-            className="cursor-pointer"
+            className="cursor-pointer w-5 h-5"
           />
           <span>Lowercase (abc)</span>
         </label>
@@ -140,7 +140,7 @@ export default function Generator() {
             type="checkbox"
             checked={includeNumbers}
             onChange={() => setIncludeNumbers((prev) => !prev)}
-            className="cursor-pointer"
+            className="cursor-pointer w-5 h-5"
           />
           <span>Numbers (123)</span>
         </label>
@@ -149,14 +149,21 @@ export default function Generator() {
             type="checkbox"
             checked={includeSymbols}
             onChange={() => setIncludeSymbols((prev) => !prev)}
-            className="cursor-pointer"
+            className="cursor-pointer w-5 h-5"
           />
           <span>Symbols (#$&)</span>
         </label>
       </div>
+  
       <div>
-        <button  onClick={copyToClipboard} className="border-2 p-2 border-blue-400 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer">📋 Copy Password</button>
+        <button
+          onClick={copyToClipboard}
+          className="border-2 p-3 text-lg border-blue-400 bg-blue-500 text-white rounded-lg hover:bg-blue-600 hover:text-white cursor-pointer"
+        >
+          📋 Copy Password
+        </button>
       </div>
     </div>
   );
+  
 }
